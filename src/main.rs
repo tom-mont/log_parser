@@ -3,6 +3,7 @@ use fake::locales::EN;
 use fake::rand::SeedableRng;
 use fake::rand::rngs::StdRng;
 use fake::{Dummy, Fake, Faker};
+use rand::prelude::*;
 
 fn main() {
     println!("Hello, world!");
@@ -11,14 +12,33 @@ fn main() {
     println!("name: {}\nevent: {}", name, event);
 
     // The pound causes the array to be pretty-printed on multiple lines
-    println!("{:#?}", login_event())
+    println!("{:#?}", login_event());
+    println!("{:#?}", login_event());
+    println!("{:#?}", login_event());
+    println!("{:#?}", login_event());
+    println!("{:#?}", login_event());
+    println!("{:#?}", login_event());
+    println!("{:#?}", login_event());
+    println!("{:#?}", login_event());
+    println!("{:#?}", login_event());
+    println!("{:#?}", login_event());
 }
 
-fn login_event() -> [String; 3] {
+fn login_event() -> String {
     let login_events: [String; 3] = [
         String::from("attempted login"),
         String::from("successful login"),
         String::from("failed login"),
     ];
-    login_events
+
+    let mut rng = rand::rng();
+    let random_float: f32 = rng.random::<f32>();
+    let login_event: String = if random_float <= 0.33 {
+        String::from("attempted login")
+    } else if (0.33 < random_float) && (random_float <= 0.66) {
+        String::from("successful login")
+    } else {
+        String::from("failed login")
+    };
+    login_event
 }

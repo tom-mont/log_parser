@@ -5,3 +5,4 @@ edition = "2024"
 
 [dependencies]
 fake = { version = "4.3.0", features = ["derive"] }
+rand = "0.9.1"
