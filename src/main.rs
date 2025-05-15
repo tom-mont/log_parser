@@ -13,15 +13,14 @@ fn main() {
 
     // The pound causes the array to be pretty-printed on multiple lines
     println!("{:#?}, {}", login_event(), generate_user_id());
-    println!("{:#?}", login_event());
-    println!("{:#?}", login_event());
-    println!("{:#?}", login_event());
-    println!("{:#?}", login_event());
-    println!("{:#?}", login_event());
-    println!("{:#?}", login_event());
-    println!("{:#?}", login_event());
-    println!("{:#?}", login_event());
-    println!("{:#?}", login_event());
+    println!("{:#?}, {}", login_event(), generate_user_id());
+    println!("{:#?}, {}", login_event(), generate_user_id());
+    println!("{:#?}, {}", login_event(), generate_user_id());
+    println!("{:#?}, {}", login_event(), generate_user_id());
+    println!("{:#?}, {}", login_event(), generate_user_id());
+    println!("{:#?}, {}", login_event(), generate_user_id());
+    println!("{:#?}, {}", login_event(), generate_user_id());
+    println!("{:#?}, {}", login_event(), generate_user_id());
 }
 
 fn login_event() -> String {
@@ -45,8 +44,7 @@ fn login_event() -> String {
 
 fn generate_user_id() -> u8 {
     let mut rng: ThreadRng = rand::rng();
-    
-    // generate user_id between 1 and 10:
-    let user_id: u8 = rng.::random<u8>;
+    // Select an integer from 1 (inclusive) to 10 (inclusive)
+    let user_id: u8 = rng.random_range(1..=10);
     user_id
 }
