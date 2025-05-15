@@ -12,15 +12,21 @@ fn main() {
     println!("name: {}\nevent: {}", name, event);
 
     // The pound causes the array to be pretty-printed on multiple lines
-    println!("{:#?}, {}", login_event(), generate_user_id());
-    println!("{:#?}, {}", login_event(), generate_user_id());
-    println!("{:#?}, {}", login_event(), generate_user_id());
-    println!("{:#?}, {}", login_event(), generate_user_id());
-    println!("{:#?}, {}", login_event(), generate_user_id());
-    println!("{:#?}, {}", login_event(), generate_user_id());
-    println!("{:#?}, {}", login_event(), generate_user_id());
-    println!("{:#?}, {}", login_event(), generate_user_id());
-    println!("{:#?}, {}", login_event(), generate_user_id());
+    let mut i: u8 = 0;
+    let mut last_user_id: u8 = 0;
+    let mut current_user_id: u8;
+    let mut current_login_event: String;
+    while i < 10 {
+        current_user_id = generate_user_id();
+        current_login_event = login_event();
+        println!("{:#?}, {}", &current_login_event, &current_user_id);
+
+        if last_user_id == current_user_id {
+            println!("Last user ID matches current user ID: {}", &current_user_id);
+        }
+        i = i + 1;
+        last_user_id = current_user_id;
+    }
 }
 
 fn login_event() -> String {
