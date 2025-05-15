@@ -12,7 +12,7 @@ fn main() {
     println!("name: {}\nevent: {}", name, event);
 
     // The pound causes the array to be pretty-printed on multiple lines
-    println!("{:#?}", login_event());
+    println!("{:#?}, {}", login_event(), generate_user_id());
     println!("{:#?}", login_event());
     println!("{:#?}", login_event());
     println!("{:#?}", login_event());
@@ -41,4 +41,12 @@ fn login_event() -> String {
         String::from("failed login")
     };
     login_event
+}
+
+fn generate_user_id() -> u8 {
+    let mut rng: ThreadRng = rand::rng();
+    
+    // generate user_id between 1 and 10:
+    let user_id: u8 = rng.::random<u8>;
+    user_id
 }
