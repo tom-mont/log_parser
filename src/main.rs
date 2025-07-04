@@ -1,7 +1,7 @@
 use fake::faker::name::raw::*;
 use fake::locales::EN;
-use fake::rand::SeedableRng;
-use fake::rand::rngs::StdRng;
+//use fake::rand::SeedableRng;
+//use fake::rand::rngs::StdRng;
 use fake::{Dummy, Fake, Faker};
 use rand::prelude::*;
 
@@ -24,17 +24,18 @@ fn main() {
         if last_user_id == current_user_id {
             println!("Last user ID matches current user ID: {}", &current_user_id);
         }
-        i = i + 1;
+        i += 1;
         last_user_id = current_user_id;
     }
 }
 
 fn login_event() -> String {
-    let login_events: [String; 3] = [
-        String::from("attempted login"),
-        String::from("successful login"),
-        String::from("failed login"),
-    ];
+    // commenting out -> implemented in simpler way below
+    //    let login_events: [String; 3] = [
+    //        String::from("attempted login"),
+    //        String::from("successful login"),
+    //        String::from("failed login"),
+    //    ];
 
     let mut rng = rand::rng();
     let random_float: f32 = rng.random::<f32>();
